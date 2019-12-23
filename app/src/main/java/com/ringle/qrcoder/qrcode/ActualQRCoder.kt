@@ -4,9 +4,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import cn.bingoogolapple.qrcode.zxing.QRCodeEncoder
-import com.ringle.qrcoder.qrcode.IQRCoder
-import kotlinx.coroutines.*
-import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.doAsyncResult
 
 /**
