@@ -2,7 +2,7 @@ package com.ringle.qrcoder
 
 import android.app.Application
 import com.ringle.qrcoder.qrcode.ActualQRCoder
-import com.ringle.xinpay.common.qrcode.QRCodeHelper
+import com.ringle.qrcoder.qrcode.QRCodeHelper
 
 /**
  * create by 岑胜德

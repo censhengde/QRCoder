@@ -1,7 +1,6 @@
-package com.ringle.xinpay.common.qrcode
+package com.ringle.qrcoder.qrcode
 
 import android.graphics.Bitmap
-import com.ringle.qrcoder.qrcode.IQRCoder
 import java.lang.RuntimeException
 
 /**
@@ -16,7 +15,7 @@ object QRCodeHelper : IQRCoder {
     private lateinit var delegate: IQRCoder
     private var inited = false//是否已经初始化
     fun init(delegate: IQRCoder) {
-        this.delegate = delegate
+        QRCodeHelper.delegate = delegate
         inited = true
     }
 

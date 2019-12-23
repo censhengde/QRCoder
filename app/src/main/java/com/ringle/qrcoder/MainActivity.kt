@@ -2,7 +2,7 @@ package com.ringle.qrcoder
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ringle.xinpay.common.qrcode.QRCodeHelper
+import com.ringle.qrcoder.qrcode.QRCodeHelper
 import kotlinx.android.synthetic.main.fragment_receive_qrcode.*
 
 class MainActivity : AppCompatActivity() {
