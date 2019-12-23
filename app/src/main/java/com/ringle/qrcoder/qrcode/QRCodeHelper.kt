@@ -2,6 +2,7 @@ package com.ringle.xinpay.common.qrcode
 
 import android.graphics.Bitmap
 import com.ringle.qrcoder.qrcode.IQRCoder
+import java.lang.RuntimeException
 
 /**
  * create by 岑胜德
@@ -13,10 +14,12 @@ object QRCodeHelper : IQRCoder {
 
 
     private lateinit var delegate: IQRCoder
-
-    fun init(delegate: IQRCoder){
-        this.delegate=delegate
+    private var inited = false//是否已经初始化
+    fun init(delegate: IQRCoder) {
+        this.delegate = delegate
+        inited = true
     }
+
     /**
      *生成二维码图片
      */
@@ -26,7 +29,16 @@ object QRCodeHelper : IQRCoder {
         foregroundColor: Int,
         backgroundColor: Int,
         logoResId: Int,
-        callback:(Bitmap)->Unit) {
-       return delegate.encodeQRCode(content,size,foregroundColor, backgroundColor, logoResId,callback)
+        callback: (Bitmap) -> Unit
+    ) {
+        if (!inited) throw RuntimeException("QRCodeHelper 未初始化!")
+        return delegate.encodeQRCode(
+            content,
+            size,
+            foregroundColor,
+            backgroundColor,
+            logoResId,
+            callback
+        )
     }
 }

@@ -27,7 +27,7 @@ class ActualQRCoder(val context: Context) : IQRCoder {
         logoResId: Int,
         callback: (Bitmap) -> Unit
     ) {
-             //开启异步任务
+             //协程开启异步任务
              val future=doAsyncResult {
             //创建logo
             val bitmap = BitmapFactory.decodeResource(context.resources, logoResId)
@@ -52,8 +52,9 @@ class ActualQRCoder(val context: Context) : IQRCoder {
             }
 
              }
-            //等待结果
+            //等待结果(非阻塞)
            val result= future.get() as Bitmap
+            //回调结果
             callback(result)
     }
 }
